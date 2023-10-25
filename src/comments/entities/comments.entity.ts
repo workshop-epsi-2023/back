@@ -5,15 +5,15 @@ export class CommentsEntity {
     @PrimaryGeneratedColumn('increment')
     id: number;
 
-    @Column({ name: 'Commentaire' })
+    @Column({ name: 'Commentaire', type: "text", nullable: true })
     comment: string;
 
-    @Column({ name: 'id_restaurant' })
+    @Column({ name: 'id_restaurant', type: "int" })
     restaurantId: number;
 
-    @Column({ name: 'id_user' })
+    @Column({ name: 'id_user', type: "int" })
     userId: number;
 
-    @Column({ name: 'Note' })
-    note: boolean;
+    @Column({ name: 'Note', type: "double", nullable: true })
+    note: number;
 }

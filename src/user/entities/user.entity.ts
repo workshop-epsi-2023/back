@@ -5,18 +5,18 @@ export class UserEntity {
     @PrimaryGeneratedColumn('increment')
     id: number;
 
-    @Column({ name: 'Commentaire' })
+    @Column({ name: 'Pseudo', type: "varchar", length: 255 })
     pseudo: string;
 
-    @Column({ name: 'Adresse_E_mail' })
+    @Column({ name: 'Adresse_E_mail', type: "varchar", length: 255 })
     email: string;
 
-    @Column({ name: 'Mot_de_passe' })
+    @Column({ name: 'Mot_de_passe', type: "varchar", length: 15 })
     password: string;
 
-    @Column({ name: 'level' })
-    level: boolean;
+    @Column({ name: 'level', type: "int", nullable: true })
+    level: number;
 
-    @Column({ name: 'nbcommentaire' })
-    commentCount: boolean;
+    @Column({ name: 'nbcommentaire', type: "int", nullable: true })
+    commentCount: number;
 }

@@ -5,24 +5,24 @@ export class RestaurantEntity {
     @PrimaryGeneratedColumn('increment')
     id: number;
 
-    @Column({ name: 'Libelle' })
+    @Column({ name: 'Libelle', type: "varchar", length: 255 })
     libelle: string;
 
-    @Column({ name: 'latitude' })
+    @Column({ name: 'latitude', type: "double" })
     latitude: string;
 
-    @Column({ name: 'longitude' })
+    @Column({ name: 'longitude', type: "double" })
     longitude: string;
 
-    @Column({ name: 'rating' })
+    @Column({ name: 'rating', type: "float" })
     rating: number;
 
-    @Column({ name: 'Categorie' })
+    @Column({ name: 'Categorie', type: "varchar", length: 255 })
     category: string;
 
-    @Column({ name: 'number_rating' })
+    @Column({ name: 'number_rating', type: "float" })
     rating_count: number;
 
-    @Column({ name: 'adress' })
+    @Column({ name: 'adress', type: "varchar", length: 255 })
     address: string;
 }
