@@ -10,7 +10,7 @@ export class RestaurantController {
     ) { }
 
     @Get()
-    find(@Query() query?: PaginationOptionsInterface): Promise<Pagination<RestaurantEntity>> {
+    find(@Query() query?: PaginationOptionsInterface & { search?: string; }): Promise<Pagination<RestaurantEntity>> {
         return this.restaurantService.find(query);
     }
 

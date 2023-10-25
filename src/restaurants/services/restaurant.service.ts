@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Pagination, PaginationOptionsInterface } from 'src/utils/databases/paginate';
-import { Repository } from 'typeorm';
+import { Like, Repository } from 'typeorm';
 import { RestaurantEntity } from '../entities/restaurant.entity';
 
 @Injectable()
@@ -18,7 +18,7 @@ export class RestaurantService {
             take: options?.limit ?? 20,
             skip: options?.page ?? 0, // think this needs to be page * limit
             where: {
-                libelle: options?.search ? options.search : undefined,
+                libelle: options?.search ? Like(`%${options.search}%`) : undefined,
             }
         });
 
