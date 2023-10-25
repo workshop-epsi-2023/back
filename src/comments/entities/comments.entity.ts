@@ -9,10 +9,10 @@ export class CommentsEntity {
     comment: string;
 
     @Column({ name: 'id_restaurant' })
-    restaurantId: string;
+    restaurantId: number;
 
     @Column({ name: 'id_user' })
-    userId: string;
+    userId: number;
 
     @Column({ name: 'Note' })
     note: boolean;

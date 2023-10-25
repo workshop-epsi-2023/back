@@ -4,6 +4,8 @@ import { Pagination, PaginationOptionsInterface } from 'src/utils/databases/pagi
 import { Repository } from 'typeorm';
 import { CommentsEntity } from '../entities/comments.entity';
 
+export type CommentInput = Omit<CommentsEntity, "id">;
+
 @Injectable()
 export class CommentsService {
     constructor(
@@ -32,4 +34,14 @@ export class CommentsService {
     async remove(id: number): Promise<void> {
         await this.restaurantsRepository.delete(id);
     }
+
+    async create(commentInput: CommentInput): Promise<CommentsEntity> {
+        return this.restaurantsRepository.save({
+            comment: commentInput.comment,
+            restaurant: commentInput.restaurantId,
+            note: commentInput.note,
+            restaurantId: commentInput.restaurantId,
+            userId: commentInput.userId,
+        });
+    };
 }
