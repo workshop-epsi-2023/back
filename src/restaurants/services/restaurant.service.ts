@@ -12,11 +12,14 @@ export class RestaurantService {
     ) { }
 
     async find(
-        options?: PaginationOptionsInterface
+        options?: PaginationOptionsInterface & { search?: string; }
     ): Promise<Pagination<RestaurantEntity>> {
         const [results, total] = await this.restaurantsRepository.findAndCount({
             take: options?.limit ?? 20,
             skip: options?.page ?? 0, // think this needs to be page * limit
+            where: {
+                libelle: options?.search ? options.search : undefined,
+            }
         });
 
         return new Pagination<RestaurantEntity>({
