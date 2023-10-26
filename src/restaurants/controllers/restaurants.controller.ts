@@ -15,8 +15,8 @@ export class RestaurantController {
     }
 
     @Get('/:id')
-    findById(@Param() params: { id: number; }): Promise<RestaurantEntity> {
-        return this.restaurantService.findOne(params.id);
+    findById(@Param() params: { id: number; }, @Query() query?: PaginationOptionsInterface): Promise<RestaurantEntity> {
+        return this.restaurantService.findOne(params.id, query);
     }
 
 }

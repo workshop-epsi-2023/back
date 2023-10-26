@@ -16,4 +16,8 @@ export class CommentsEntity {
 
     @Column({ name: 'Note', type: "double", nullable: true })
     note: number;
+
+    @Column({ name: 'date_commentaire', type: "datetime", default: () => "NOW()" })
+    date?: string;
+
 }
