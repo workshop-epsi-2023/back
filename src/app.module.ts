@@ -17,7 +17,6 @@ const modules = [
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: '.env.local',
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],

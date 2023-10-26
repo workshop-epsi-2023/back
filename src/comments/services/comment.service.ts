@@ -62,6 +62,9 @@ export class CommentsService {
     public async findByRestaurantId(restaurantId: number, options: PaginationOptionsInterface): Promise<Pagination<ICommentOutput>> {
         const [results, total] = await this.commentRepository.findAndCount({
             where: { restaurantId },
+            order: {
+                date: "DESC"
+            },
             take: 20,
             skip: options?.page ?? 0, // think this needs to be page * limit
         });
